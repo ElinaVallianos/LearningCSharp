@@ -19,7 +19,7 @@
         Console.WriteLine(i1);
 
         int i2 = 4;
-        int i3 = 11;
+        int i3 = 18;
 
 
         Console.WriteLine(i3/i2);
