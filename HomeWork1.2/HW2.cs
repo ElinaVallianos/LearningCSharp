@@ -1,27 +1,27 @@
 ﻿
-Console.WriteLine("Name:");
+Console.Write("Name: ");
 string name = Console.ReadLine();
 
-Console.WriteLine("Surname:");
+Console.Write("Surname: ");
 string surname = Console.ReadLine();
 
-Console.WriteLine("Phone number:");
+Console.Write("Phone number: ");
 string phoneNumber = Console.ReadLine();
 
 
-Console.WriteLine("The salary for January:");
+Console.Write("The salary for January: ");
 int jan = int.Parse(Console.ReadLine());
-Console.WriteLine("The salary for February:");
+Console.Write("The salary for February: ");
 int feb = int.Parse(Console.ReadLine());
-Console.WriteLine("The salary for March:");
+Console.Write("The salary for March: ");
 int mar = int.Parse(Console.ReadLine());
-Console.WriteLine("The salary for April:");
+Console.Write("The salary for April: ");
 int apr = int.Parse(Console.ReadLine());
-Console.WriteLine("The salary for May:");
+Console.Write("The salary for May: ");
 int may = int.Parse(Console.ReadLine());
-Console.WriteLine("The salary for June:");
+Console.Write("The salary for June: ");
 int jun = int.Parse(Console.ReadLine());
-Console.WriteLine("The salary for Jule:");
+Console.Write("The salary for Jule: ");
 int jul = int.Parse(Console.ReadLine());
 
 Console.WriteLine($"{name} {surname} {phoneNumber}");

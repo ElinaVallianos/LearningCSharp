@@ -1,24 +1,24 @@
-﻿Console.WriteLine("Name of instistution:");
+﻿Console.Write("Name of instistution: ");
 string name = Console.ReadLine();
 
-Console.WriteLine("The number of the institution:");
+Console.Write("The number of the institution: ");
 string number = Console.ReadLine();
 
 
-Console.WriteLine("The amount of costumers in January:");
+Console.Write("The amount of costumers in January: ");
 //strng input;
 int jan = int.Parse(Console.ReadLine());
-Console.WriteLine("The amount of costumers in February:");
+Console.Write("The amount of costumers in February: ");
 int feb = int.Parse(Console.ReadLine());
-Console.WriteLine("The amount of costumers in March:");
+Console.Write("The amount of costumers in March: ");
 int mar = int.Parse(Console.ReadLine());
-Console.WriteLine("The amount of costumers in April:");
+Console.Write("The amount of costumers in April: ");
 int apr = int.Parse(Console.ReadLine());
-Console.WriteLine("The amount of costumers in May:");
+Console.Write("The amount of costumers in May: ");
 int may = int.Parse(Console.ReadLine());
-Console.WriteLine("The amount of costumers in June:");
+Console.Write("The amount of costumers in June: ");
 int jun = int.Parse(Console.ReadLine());
-Console.WriteLine("The amount of costumers in Jule:");
+Console.Write("The amount of costumers in Jule: ");
 int jul = int.Parse(Console.ReadLine());
 
 Console.WriteLine($"{name} {number}");
