@@ -28,6 +28,3 @@ Console.WriteLine(byteNumber + 2 >= bytenumber2);
 Console.WriteLine(byteNumber + 2 <= bytenumber2);
 Console.WriteLine(byteNumber + 2 == bytenumber2);
 Console.WriteLine(byteNumber + 2 != bytenumber2);
-
-
-
