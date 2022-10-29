@@ -25,7 +25,7 @@ int count = nSmall;
 while (count < nMedium )
 {
     Console.Write($"{count}, ");
-    ++count;
+    count++;
 }
 Console.Write($"{count}\n");
 
@@ -33,31 +33,31 @@ count = nBig;
 while (count > nMedium)
 {
     Console.Write($"{count}, ");
-    count = count - 1;
+    count--;
 }
-Console.Write($"{count}\n ");
+Console.Write($"{count}\n");
 
-count = nSmall + 1;
+count = nSmall;
 int counterNumbers = 0;
-while (count < nMedium)
+while (count <= nMedium)
 {
     if ((count % 2 == 0) && ( count % 4 != 0))
     {
-        ++counterNumbers;
+        counterNumbers++;
     }
-    ++count;
+    count++;
 }
-Console.Write($"{counterNumbers}\n ");
+Console.WriteLine(counterNumbers);
 
 
-count = nSmall + 1;
+count = nSmall;
 int Summ = 0;
-while (count < nBig)
+while (count <= nBig)
 {
     if ((count % 3 == 0) ^ (count % 7 == 0))
     {
         Summ = Summ + count;
     }
-    ++count;
+    count++;
 }
-Console.Write($"{Summ}\n ");
+Console.WriteLine(Summ);
