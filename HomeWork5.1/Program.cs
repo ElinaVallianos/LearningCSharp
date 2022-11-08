@@ -42,6 +42,7 @@ do
 } while (nSmallForSumm <= nBigForSumm );
 Console.WriteLine($"Summ: {nSumm}");
 
+
 //3 [есть ли в последовательности совершенные числа]
 Console.WriteLine();
 
