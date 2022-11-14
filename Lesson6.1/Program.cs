@@ -154,11 +154,18 @@ void Program6(int number1,int number2)
     {
         for (int j = number2; j > i; j--)
         {
-            if ((i + j) % 3 == 0)
+            int sum = i + j;
+            if (sum % 3 == 0)
             {
-                Console.WriteLine($"{i} + {j} = {i + j}");
+                Console.WriteLine($"{i} + {j} = {sum}");
 
             }
         }
     }
+}
+
+bool isPerfectNumber( int n)
+{
+    int sum = 0;
+
 }
