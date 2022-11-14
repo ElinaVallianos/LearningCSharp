@@ -94,24 +94,25 @@ void Task3(int number)
 
 void Task4(int number)
 {
+    int count = 0; 
     for (int i = 1; i <= number; i++)
     {
-        for (int j = 1; j <= (number - i); j++)
+        if (i % 2 == 0)
+        {
+            continue;
+        }
+
+
+        for (int j = 1; j <= (number - i + count); j++)
         {
             Console.Write($" ");
         }
-        //if (i % 2 == 0)
-        //{
-        //    //for (int k = 2; k <= i; k++)
-        //    //{
-        //    //    Console.Write($"*");
-        //    //}
-        //    continue;
-        //}
+        
         for (int k = 1; k <= i; k++)
         {
             Console.Write($"*");
         }
+        count++;
         Console.WriteLine();
     }
 }
