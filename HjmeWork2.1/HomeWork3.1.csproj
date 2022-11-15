@@ -6,6 +6,7 @@
     <RootNamespace>HjmeWork2._1</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>HjmeWork3.1</AssemblyName>
   </PropertyGroup>
 
 </Project>
