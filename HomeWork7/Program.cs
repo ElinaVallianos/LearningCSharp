@@ -42,24 +42,21 @@ class Program
 
     //for task1[I am confused]
 
-    //static string WhatType(int value)
-    //{
-    //    return "int";
-    //}
+   
 
     static string WhatType(float value)
     {
-        return "float";
+        return $"{value} is of type 'float'";
     }
 
     static string WhatType(string value)
     {
-        return "string";
+        return $"{value} is of type 'string'";
     }
 
-    static void WhatType(int value)
+    static string WhatType(int value)
     {
-        Console.WriteLine($"{value} is of type 'int'");
+        return $"{value} is of type 'int'";
     }
 
 
@@ -189,7 +186,8 @@ class Program
         string phone = GetValue("phone");
         string salary = GetValue("salary");
 
-        Print(number, name, surname, position, phone, salary);
+        Print(number, name, surname, position);
+        Print(number, name, surname, phone: phone, salary: salary);
 
     }
 
