@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace HomeWork9;
+﻿namespace HomeWork8;
 class Program
 {
     static void Main(string[] args)
@@ -19,7 +17,7 @@ class Program
 
         int[] arrInt2 = new int[] { 17, 45, 12, 13, 0 };
 
-        foreach (var item in Concat(arrInt,arrInt2))
+        foreach (var item in Concat(arrInt, arrInt2))
         {
             Console.Write(item + ", ");
         }
@@ -53,10 +51,10 @@ class Program
         return summ;
     }
 
-     static int Max(int[] arr2)
+    static int Max(int[] arr2)
     {
         int max = 0;
-        for (int i = 0; i < arr2.Length ; i++)
+        for (int i = 0; i < arr2.Length; i++)
         {
             max = arr2[i] > max ? arr2[i] : max;
         }
@@ -73,7 +71,7 @@ class Program
         return max;
     }
 
-    static int Average( int[] arr3)
+    static int Average(int[] arr3)
     {
         return Sum(arr3) / (arr3.Length);
     }
@@ -84,20 +82,20 @@ class Program
         return Sum(arr3) / (arr3.Length);
     }
 
-    static int[] Concat( int[] arr1, int[] arr2)
+    static int[] Concat(int[] arr1, int[] arr2)
     {
         int[] newArray = new int[arr1.Length + arr2.Length];
 
-        for (int i = 0; i < newArray.Length ; i++)
+        for (int i = 0; i < newArray.Length; i++)
         {
-            if ( i < arr1.Length)
+            if (i < arr1.Length)
             {
                 newArray[i] = arr1[i];
             }
             else
             {
                 newArray[i] = arr2[i - arr1.Length];
-            }   
+            }
         }
         return newArray;
     }

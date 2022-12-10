@@ -94,20 +94,20 @@ class Program
         arr40[4] = new int[5];
 
         Console.WriteLine("Длинна массива arr40 = " + arr40.Length);
-        Console.WriteLine("Длинна массива arr40[1] = " + arr40[1].Length);
+        //Console.WriteLine("Длинна массива arr40[1] = " + arr40[1].Length);
 
         arr40[3][2] = 23;
         arr40[3][0] = 12;
 
-        Console.WriteLine("Все элементы массива в массиве arr40");
-        foreach (var arr in arr40)
-        {
-            foreach (var item in arr)
-            {
-                Console.Write(item + " ");
+        //Console.WriteLine("Все элементы массива в массиве arr40");
+        //foreach (var arr in arr40)
+        //{
+        //    foreach (var item in arr)
+        //    {
+        //        Console.Write(item + " ");
 
-            }
-        }
+        //    }
+        //}
 
         for (int i = 0; i < arr40.Length ; i++)
         {
@@ -152,6 +152,24 @@ class Program
             }
             Console.Write(" \n");
 
+        }
+
+
+        for (int i = 0; i < arr50.Length; i++)
+        {
+            Console.WriteLine($"Массив arr[{i}]");
+
+            for (int j = 0; j < arr50[i].Length; j++)
+            {
+                Console.Write("\t");
+                Console.Write($"массив arr[{i}][{j}");
+
+                for (int k = 0; k < arr50[i][j].Length; k++)
+                {
+                    Console.Write($"массив arr[{i}][{j}");
+
+                }
+            }
         }
     }
 }
