@@ -14,7 +14,6 @@ class Program
 
         Console.Write("В обратном порядке: ");
         PrintArr(Revers(arr1));
-        Console.Write(arr1.Length );
 
         Console.Write("Удаление элемента 0 из { 2, 4, 6, 3, 1 } : ");
         PrintArr(Remove(arr1, 0));
@@ -151,28 +150,17 @@ class Program
     //5
     static int[,] JaggedToMatrix(int[][] arr)
     {
-        int[] small = arr[0];
+        int index = arr[0].Length;
         for (int i = 0; i < arr.Length; i++)
         {
-            small = arr[i].Length >= small.Length ? small : arr[i];
-        }
-        int index = small.Length;
-        int[][] newArray = new int[arr.GetLength(0)][];
-
-        for (int i = 0; i < arr.GetLength(0); i++)
-        {
-            while (arr[i].Length != index)
-            {
-                arr[i] = Remove(arr[i], index);
-            }
-            newArray[i] = arr[i];
+            index = arr[i].Length >= index ? index : arr[i].Length;
         }
         int[,] readyArray = new int[arr.GetLength(0), index];
-        for (int i = 0; i < newArray.GetLength(0); i++)
+        for (int i = 0; i < arr.GetLength(0); i++)
         {
             for (int j = 0; j < index; j++)
             {
-                readyArray[i, j] = newArray[i][j];
+                readyArray[i, j] = arr[i][j];
             }
         }
         return readyArray;
