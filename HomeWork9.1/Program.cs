@@ -23,10 +23,12 @@ class Program
         Console.Write("Удаление элемента 5 из { 2, 4, 6, 3, 1 } : ");
         PrintArr(Remove(arr1, 5));
 
-        PrintTwiseArray(Fill(arr4));
-        PrintTwiseArray( SummOfMatrix(arr4, Fill(arr5)));
+        Fill(arr4);
+        PrintArr(arr4);
+        Fill(arr5);
+        PrintArr( SummOfMatrix(arr4,arr5));
 
-        PrintDifficultArray(JaggedToMatrix(arr6));
+        PrintArr(JaggedToMatrix(arr6));
     }
 
     static void PrintArr(int[] arr)
@@ -47,7 +49,7 @@ class Program
         }
     }
 
-    static void PrintTwiseArray(int[,] arr)
+    static void PrintArr(int[,] arr)
     {
         Console.WriteLine();
         for (int i = 0; i < 3; i++)
@@ -61,7 +63,7 @@ class Program
         }
     }
 
-    static void PrintDifficultArray(int[][] arr)
+    static void PrintArr(int[][] arr)
     {
         for (int i = 0; i < arr.Length; i++)
         {
@@ -88,15 +90,15 @@ class Program
     //2
     static int[] Remove(int[] arr, int index)
     {
-        if (index > (arr.Length - 1))
+        if (index > (arr.Length - 1) || index < 0)
         {
             return arr;
         }
 
-        if (index < 0)
-        {
-            index = arr.Length + index;
-        }
+        //if (index < 0)
+        //{
+        //    index = arr.Length + index;
+        //}
 
         int[] newArr = new int[arr.Length - 1];
         int k = 0;
@@ -114,10 +116,10 @@ class Program
         return newArr;
     }
     //3
-    static int[,] Fill(int[,] arr)
+    static void Fill(int[,] arr)
     {
         Console.WriteLine();
-        for (int j = 0, k = 1; j < arr.GetLength(0); j++, k++)
+        for (int j = 0; j < arr.GetLength(0); j++)
         {
             for (int i = 0; i < arr.GetLength(1); i++)
             {
@@ -127,16 +129,15 @@ class Program
                     arr[j, i] = int.Parse(Console.ReadLine());
                     continue;
                 }
-                arr[j, i] = arr[ 0 , i] * k;
+                arr[j, i] = arr[ 0 , i] * (i + 1);
             }
         }
-        return arr;
     }
 
     //4
     static int[,] SummOfMatrix( int[,] arr1 , int[,] arr2 )
     {
-        int[,] newArr = new int[3, 2];
+        int[,] newArr = new int[arr1.GetLength(0), arr1.GetLength(1)];
         for (int j = 0; j < newArr.GetLength(0); j++)
         {
             for (int i = 0; i < newArr.GetLength(1); i++)
@@ -148,15 +149,16 @@ class Program
     }
 
     //5
-    static int[][] JaggedToMatrix(int[][] arr)
+    static int[,] JaggedToMatrix(int[][] arr)
     {
-        int[][] newArray = new int[arr.GetLength(0)][];
         int[] small = arr[0];
         for (int i = 0; i < arr.Length; i++)
         {
             small = arr[i].Length >= small.Length ? small : arr[i];
         }
         int index = small.Length;
+        int[][] newArray = new int[arr.GetLength(0)][];
+
         for (int i = 0; i < arr.GetLength(0); i++)
         {
             while (arr[i].Length != index)
@@ -165,7 +167,15 @@ class Program
             }
             newArray[i] = arr[i];
         }
-        return newArray;
+        int[,] readyArray = new int[arr.GetLength(0), index];
+        for (int i = 0; i < newArray.GetLength(0); i++)
+        {
+            for (int j = 0; j < index; j++)
+            {
+                readyArray[i, j] = newArray[i][j];
+            }
+        }
+        return readyArray;
     }
 }
 
