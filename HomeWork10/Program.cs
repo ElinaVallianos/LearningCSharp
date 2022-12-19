@@ -8,67 +8,93 @@ class Program
             " Description. \u0024, \\u0024, &#36, dollar. \u00A2, \\u00A2," +
             " &#162, cent. \u00A3, \\u00A3, &#163, pound. \u20BD, \\u20BD, " +
             "&#8381, ruble";
+        string string3 = "List of companies.Company,Contact,Country.Alfreds " +
+            "Futterkiste,Maria Anders,Germany.Centro comercial Moctezuma," +
+            "Francisco Chang,Mexico.Ernst Handel,Roland Mendel,Austria." +
+            "Island Trading,Helen Bennett,United Kingdom.Laughing Bacchus " +
+            "Winecellars,Yoshi Tannamuri,Canada.Magazzini Alimentari Riuniti," +
+            "Giovanni Rovelli,Italy.";
 
         PrintTable(string1);
-        Console.WriteLine("\n\n\n------ SECOND TABLE ------\n\n\n");
         PrintTable(string2);
+        PrintTable(string3);
     }
 
     static void PrintTable( string string1)
     {
-        string[] splitString1 = string1.Split('.');
+        string[] splitString1 = string1.Trim('.' , ' ').Split('.');
         Console.WriteLine(splitString1[0].ToUpper());
-        string[] hat = splitString1[1].Split(',');
 
-        PrintLine(splitString1);
-
-        foreach (var item in hat)
+        string[][] body = new string[splitString1.Length - 1][];
+        for (int i = 1; i < splitString1.Length; i++) 
         {
-            Console.Write("|" + item.Trim('.') + " ");
-        }
-        Console.Write("|\n");
-        PrintLine(splitString1);
-
-
-        for (int i = 2; i < splitString1.Length ; i++)
-        {
-            string[] line = splitString1[i].Split(',');
-            int count = 0;
-            for (int j = 0; j < line.Length ; j++)
+            string[] line = splitString1[i].Trim('.', ' ').Split(',');
+            for (int j = 0; j < line.Length; j++)
             {
-                Console.Write("|" + line[j].Trim('.') + " ");
-                count = line[j].Length + 1;
-                if (count < hat[j].Length)
+                body[i - 1] =  line;
+            }
+        }
+
+        PrintLine(body);
+
+        for (int i = 0; i < body.Length ; i++)
+        {
+            int count = 0;
+            for (int j = 0; j < body[i].Length ; j++)
+            {
+                Console.Write("| " + body[i][j].Trim('.',' ') + " ");
+                count = body[i][j].Trim(' ').Length;
+                if (count < MaxLength(body , j))
                 {
-                    while (count <= hat[j].Length)
+                    while (count < MaxLength(body, j))
                     {
                         Console.Write(" ");
                         count++;
                     }
                 }
             }
-            Console.Write("|\n");
+            if ( i == 0)
+            {
+                Console.Write("|\n");
+                PrintLine(body);
+            }
+            else
+            {
+                Console.Write("|\n");
+            }
         }
 
-        PrintLine(splitString1);
+        PrintLine(body);
+        Console.WriteLine();
 
     }
-    static void PrintLine(string[] splitString)
+
+
+    static void PrintLine(string[][] body)
     {
         int count = 0;
-        int length = splitString[1].Length + 2;
-
-        foreach (var item in splitString[1].Split(','))
+        int length = 0;
+        for (int i = 0; i < body[0].Length; i++)
         {
-            length += 1;
+            length += MaxLength(body, i) + 3;
         }
 
-        while (count < length )
+        while (count <= length )
         {
             Console.Write("-");
             count++;
         }
         Console.Write("\n");
     }
-}
 
+
+    static int MaxLength(string[][] arr, int index)
+    {
+        int max = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            max = max >= arr[i][index].Trim().Length ? max : arr[i][index].Trim().Length;
+        }
+        return max;
+    }
+}
