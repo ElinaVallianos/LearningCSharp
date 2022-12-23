@@ -167,5 +167,5 @@ void Program6(int number1,int number2)
 bool isPerfectNumber( int n)
 {
     int sum = 0;
-
+    return true;
 }
