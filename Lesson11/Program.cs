@@ -93,10 +93,10 @@ config {{
         int numberOf_i = 0;
         int startIndex = 0;
 
-        while (str2.IndexOf('i', startIndex ) > 0)
+        while (str2.IndexOf('i', startIndex) > 0)
         {
             //найти символ 'i' с позиции startIndex
-            startIndex = str2.IndexOf('i', startIndex );
+            startIndex = str2.IndexOf('i', startIndex);
             Console.WriteLine(startIndex);
             startIndex++;
             numberOf_i++;
@@ -129,7 +129,7 @@ config {{
         int[] intArr = { 1, 2, 3, 4, 5 };
         Console.WriteLine(String.Join(", ", intArr));
 
-        string str3 = String.Join("", str2.Split(',', '.',':','(',')'));
+        string str3 = String.Join("", str2.Split(',', '.', ':', '(', ')'));
         Console.WriteLine(str3);
 
         //дополняют строку пробелами до указанной длинны
@@ -138,8 +138,9 @@ config {{
         Console.WriteLine(str1.PadLeft(10) + '|'); //10 - результирующая дина строки.
                                                    //Если число меньше чем длина строки, он ничего не добавляет.
                                                    //то же самое с помощю форматирования
-        Console.WriteLine($"{str1, -10 }|"); // пробелы справа
+        Console.WriteLine($"{str1,-10}|"); // пробелы справа
         Console.WriteLine($"{str1,10}|");    // пробелы слева
+        Console.WriteLine($"{str1,5}|");    // 5 короче длины строки -- он ничего не будет делать
 
 
 
