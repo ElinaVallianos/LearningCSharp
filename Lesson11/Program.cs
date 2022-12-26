@@ -91,7 +91,7 @@ config {{
         Console.WriteLine(str2.LastIndexOf("Podgorica"));
 
         int numberOf_i = 0;
-        int startIndex = 0;
+        int startIndex = 0; //с какого места ищет ( со второго i,  например)
 
         while (str2.IndexOf('i', startIndex) > 0)
         {
