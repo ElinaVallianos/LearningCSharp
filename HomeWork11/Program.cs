@@ -28,7 +28,7 @@ class Program
     {
         Console.WriteLine($"Количество символов: " + string1.Length);
         Console.WriteLine($"Количество букв: " + String.Join("",
-            string1.Split(',', '.', ':', '(', ')', ' ' , '?', '!')).Remove('\n', 1).Length);
+            string1.Split(',', '.', ':', '(', ')', ' ' , '?', '!', '-','\n')).Length);
 
 
         int numberOf_Z = 1;
@@ -93,9 +93,9 @@ class Program
             {
                 string word = splitWords[j].Trim(' ', '.', ',', '(', ')', '?');
                 string capitalLetter = word.Substring(0, 1); //заглавная буква слова
-                if (i > 0)
+                if (j > 0)
                 {
-                    if (splitWords[i-1].EndsWith('.') || splitWords[i - 1].EndsWith('?'))
+                    if (splitWords[j-1].EndsWith('.') || splitWords[j - 1].EndsWith('?'))
                     {
                         splitWords[j] = capitalLetter.ToUpper() + splitWords[j].Trim().Remove(0, 1);
                     }
