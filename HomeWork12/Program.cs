@@ -19,11 +19,11 @@ class Program
     static void CreateInput( string input)
     {
         string[] lines = new string[1000];
+        Random rand = new Random();
         for (int i = 0; i < lines.Length; i++)
         {
-            Random rand = new Random();
             int x = rand.Next(100, 400);
-            lines[i] = "" + x;
+            lines[i] = x.ToString();
         }
         File.WriteAllLines(input, lines);
     }
@@ -56,7 +56,6 @@ class Program
                 }
             }
         }
-        string[] output = numbers.ToString().Split('\n');
-        File.WriteAllLines(filePathWay, output);
+        File.WriteAllText(filePathWay, numbers.ToString());
     }
 }
