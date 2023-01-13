@@ -3,17 +3,10 @@
 [Flags]
 enum Survey
 {
-    //yes = 1,
-    //no = 0
+    Bad = 0,
     tasety = 2,
-    discusting = 4,
-    goodServes = 8,
-    badServes = 16,
-    cheap = 32,
-    expensive = 64,
-
-    //yes = tasety | goodServes | cheap,
-    //no = discusting | badServes | expensive 
+    goodServes = 4,
+    cheap = 16,
 }
 
 enum Stars
@@ -42,11 +35,7 @@ class Program
                 case 0:
                     if (answer == "yes")
                     {
-                        survey = Survey.tasety;
-                    }
-                    else
-                    {
-                        survey = Survey.discusting;
+                        survey |= Survey.tasety;
                     }
                     break;
                 case 1:
@@ -54,33 +43,19 @@ class Program
                     {
                         survey |= Survey.goodServes;
                     }
-                    else
-                    {
-                        survey |= Survey.badServes;
-                    }
                     break;
                 default:
                     if (answer == "yes")
                     {
                         survey |=  Survey.cheap;
                     }
-                    else
-                    {
-                        survey |= Survey.expensive;
-                    }
                     break;
             }
         }
 
-        
-        
-        //AskQuestion("Was it tasety?", survey);
-        //AskQuestion("Good Serves?", survey);
-        //AskQuestion("Was it cheap?", survey);
         Console.WriteLine(survey);
         SetStars(survey);
         Console.WriteLine("Stars: " + (int)SetStars(survey));
-
     }
 
     static Stars SetStars(Survey testResult)
@@ -107,22 +82,5 @@ class Program
                 return Stars.Three;
         }
     }
-
-    //static void AskQuestion(string question, Survey answers)
-    //{
-    //    Console.WriteLine(question);
-    //    string answer = Console.ReadLine().ToLower();
-    //    switch (answer.ToLower())
-    //    {
-    //        case "yes":
-    //            answers = answers | Survey.yes;
-    //            break;
-    //        case "no":
-    //            answers = answers | Survey.no;
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 }
 
