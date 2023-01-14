@@ -3,10 +3,10 @@
 [Flags]
 enum Survey
 {
-    Bad = 0,
-    tasety = 2,
-    goodServes = 4,
-    cheap = 16,
+    bad = 0,
+    tasety = 1,
+    goodServes = 2,
+    cheap = 4
 }
 
 enum Stars
@@ -64,7 +64,7 @@ class Program
         Survey[] choices = new Survey[] { Survey.tasety, Survey.goodServes, Survey.cheap };
         foreach (var item in choices )
         {
-            if (testResult == (testResult |= item))
+            if (testResult.HasFlag(item)) //////
             {
                 count++;
             }
