@@ -3,10 +3,10 @@
 [Flags]
 enum Survey
 {
-    bad = 0,
-    tasety = 1,
-    goodServes = 2,
-    cheap = 4
+    Bad = 0,
+    Tasety = 1,
+    GoodServes = 2,
+    Cheap = 4
 }
 
 enum Stars
@@ -35,19 +35,19 @@ class Program
                 case 0:
                     if (answer == "yes")
                     {
-                        survey |= Survey.tasety;
+                        survey |= Survey.Tasety;
                     }
                     break;
                 case 1:
                     if (answer == "yes")
                     {
-                        survey |= Survey.goodServes;
+                        survey |= Survey.GoodServes;
                     }
                     break;
                 default:
                     if (answer == "yes")
                     {
-                        survey |=  Survey.cheap;
+                        survey |=  Survey.Cheap;
                     }
                     break;
             }
@@ -61,7 +61,7 @@ class Program
     static Stars SetStars(Survey testResult)
     {
         int count = 0;
-        Survey[] choices = new Survey[] { Survey.tasety, Survey.goodServes, Survey.cheap };
+        Survey[] choices = new Survey[] { Survey.Tasety, Survey.GoodServes, Survey.Cheap };
         foreach (var item in choices )
         {
             if (testResult.HasFlag(item)) //////
